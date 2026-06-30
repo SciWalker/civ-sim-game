@@ -1,0 +1,25 @@
+; Godot 4 project configuration.
+; Open this folder in Godot 4.3+ to run.
+
+config_version=5
+
+[application]
+
+config/name="Seamless Colony Sim"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+
+[autoload]
+
+; Global singletons accessible from any script.
+TickBus="*res://scripts/simulation/TickBus.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"

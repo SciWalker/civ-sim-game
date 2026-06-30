@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://seamlesssim00main"]
+
+[ext_resource type="Script" path="res://scripts/ui/WorldCamera.gd" id="1_camera"]
+[ext_resource type="Script" path="res://scripts/world/ChunkManager.gd" id="2_chunks"]
+[ext_resource type="Script" path="res://scripts/agents/AgentRenderer.gd" id="3_agents"]
+[ext_resource type="Script" path="res://scripts/ui/DebugHUD.gd" id="4_hud"]
+
+[node name="Main" type="Node2D"]
+
+[node name="WorldCamera" type="Camera2D" parent="."]
+script = ExtResource("1_camera")
+
+[node name="ChunkManager" type="Node2D" parent="."]
+script = ExtResource("2_chunks")
+camera_path = NodePath("../WorldCamera")
+
+[node name="AgentRenderer" type="MultiMeshInstance2D" parent="."]
+z_index = 10
+script = ExtResource("3_agents")
+camera_path = NodePath("../WorldCamera")
+
+[node name="DebugHUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_hud")
+agent_renderer_path = NodePath("../AgentRenderer")
+chunk_manager_path = NodePath("../ChunkManager")

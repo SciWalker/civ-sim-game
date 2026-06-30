@@ -1,0 +1,18 @@
+[package]
+name = "agent_sim"
+version = "0.1.0"
+edition = "2021"
+
+# Compiles to a dynamic library that Godot loads as a GDExtension.
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# The godot-rust binding. Pin to a 0.x you've tested; check the latest at
+# https://godot-rust.github.io for the version matching your Godot 4.x.
+godot = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

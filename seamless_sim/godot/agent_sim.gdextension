@@ -1,0 +1,14 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.3
+reloadable = true
+
+[libraries]
+; Paths to the compiled Rust library per platform/build.
+; Build with: cd rust && cargo build (debug) or cargo build --release
+linux.debug     = "res://../rust/target/debug/libagent_sim.so"
+linux.release   = "res://../rust/target/release/libagent_sim.so"
+windows.debug   = "res://../rust/target/debug/agent_sim.dll"
+windows.release = "res://../rust/target/release/agent_sim.dll"
+macos.debug     = "res://../rust/target/debug/libagent_sim.dylib"
+macos.release   = "res://../rust/target/release/libagent_sim.dylib"
